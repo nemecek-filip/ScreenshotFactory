@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC31D9022339318600A816D6 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC31D9012339318600A816D6 /* GradientView.swift */; };
 		DC998D30233165AE00B9B2AC /* iPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC998D2F233165AE00B9B2AC /* iPhone.swift */; };
 		DCADE3D12327B0370051623E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCADE3D02327B0370051623E /* AppDelegate.swift */; };
 		DCADE3D32327B0370051623E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCADE3D22327B0370051623E /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DC31D9012339318600A816D6 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		DC998D2F233165AE00B9B2AC /* iPhone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPhone.swift; sourceTree = "<group>"; };
 		DCADE3CD2327B0370051623E /* ScreenshotFactory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScreenshotFactory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCADE3D02327B0370051623E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				DCADE3DC2327B0390051623E /* Info.plist */,
 				DCADE3E52327B06C0051623E /* Constants.swift */,
 				DC998D2F233165AE00B9B2AC /* iPhone.swift */,
+				DC31D9012339318600A816D6 /* GradientView.swift */,
 			);
 			path = ScreenshotFactory;
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 			files = (
 				DCADE3D32327B0370051623E /* ViewController.swift in Sources */,
 				DCADE3D12327B0370051623E /* AppDelegate.swift in Sources */,
+				DC31D9022339318600A816D6 /* GradientView.swift in Sources */,
 				DC998D30233165AE00B9B2AC /* iPhone.swift in Sources */,
 				DCADE3E62327B06C0051623E /* Constants.swift in Sources */,
 			);

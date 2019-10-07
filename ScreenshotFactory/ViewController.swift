@@ -20,7 +20,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     let demoScreenshot = UIImage(named: R.Images.demoScreenshot)!
     
-    var selectedScreenshot: UIImage?
+    var selectedScreenshot: UIImage? {
+        didSet {
+            redraw(animated: true)
+        }
+    }
     var backgroundColor = UIColor.lightGray
     var textToRender: String?
     var textSize: CGFloat = 140
@@ -53,6 +57,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         resultImageView.addGestureRecognizer(recognizer)
     }
     
+    @IBAction func exportButtonTapped(_ sender: UIButton) {
+        let shareController = UIActivityViewController(activityItems: [resultImageView.image as Any], applicationActivities: nil)
+        shareController.popoverPresentationController?.sourceView = sender
+        shareController.popoverPresentationController?.sourceRect = sender.bounds
+        present(shareController, animated: true, completion: nil)
+    }
+    
+    
     @objc func imageTapped() {
         let picker = UIImagePickerController()
         picker.delegate = self
@@ -68,8 +80,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
         
         selectedScreenshot = newImage
-        
-        redraw(animated: true)
         
         dismiss(animated: true, completion: nil)
     }
