@@ -13,6 +13,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var sourceTextView: UITextView!
     @IBOutlet var textSizeSlider: UISlider!
+    @IBOutlet var fontPickerView: FontPickerView!
     
     let phone = iPhone.X
     
@@ -28,6 +29,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     var backgroundColor = UIColor.lightGray
     var textToRender: String?
     var textSize: CGFloat = 140
+    var font: FontPickerView.FontModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,12 +38,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         sourceTextView.delegate = self
         
+        fontPickerView.didSelectFont = newFontSelected(_:)
+        
         setupViews()
         setupGestureRecognizer()
         
         textToRender = sourceTextView.text
         selectedScreenshot = demoScreenshot
         
+        redraw()
+    }
+    
+    func newFontSelected(_ font: FontPickerView.FontModel) {
+        self.font = font
         redraw()
     }
     
@@ -108,7 +117,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     let paragraphStyle = NSMutableParagraphStyle()
                     paragraphStyle.alignment = .center
                     
-                    let attrs = [NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-Thin", size: self.textSize)!, NSAttributedString.Key.paragraphStyle: paragraphStyle, NSAttributedString.Key.foregroundColor: UIColor.white]
+                    let font: UIFont
+                    if let selectedFont = self.font {
+                        font = UIFont(name: selectedFont.font, size: self.textSize)!
+                    } else {
+                        font = UIFont(name: "HelveticaNeue-Thin", size: self.textSize)!
+                    }
+                    
+                    let attrs = [NSAttributedString.Key.font: font, NSAttributedString.Key.paragraphStyle: paragraphStyle, NSAttributedString.Key.foregroundColor: UIColor.white]
                     
                     text.draw(with: self.phone.textFrame, options: .usesLineFragmentOrigin, attributes: attrs, context: nil)
                 }

@@ -37,7 +37,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="sXO-bO-gV7">
-                                <rect key="frame" x="487" y="179" width="240" height="339.5"/>
+                                <rect key="frame" x="487" y="179" width="240" height="547.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="beL-QQ-qv1">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="20.5"/>
@@ -85,11 +85,18 @@
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WYl-Ae-7MH" customClass="FontPickerView" customModule="ScreenshotFactory" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="347.5" width="240" height="200"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="hbq-sS-VZJ"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0tT-Jk-PiO">
                                 <rect key="frame" x="183.5" y="905" width="140" height="45"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="bYm-S2-oZB"/>
                                     <constraint firstAttribute="width" constant="140" id="rlC-VV-yI1"/>
@@ -133,12 +140,13 @@
                                 <color key="value" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="bottomColor">
-                                <color key="value" systemColor="systemOrangeColor" red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="value" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="NeN-ty-C7P" id="ZZi-Id-b71"/>
+                        <outlet property="fontPickerView" destination="WYl-Ae-7MH" id="pfk-Gn-WqN"/>
                         <outlet property="resultImageView" destination="ZPS-eE-pQD" id="Uep-Jh-QWY"/>
                         <outlet property="sourceTextView" destination="Usn-OD-j6P" id="FTw-JL-SPV"/>
                         <outlet property="textSizeSlider" destination="HW9-Iz-a5M" id="cIP-nj-POs"/>

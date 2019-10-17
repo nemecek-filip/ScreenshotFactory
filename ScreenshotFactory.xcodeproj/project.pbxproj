@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC031B4F2358F99900009281 /* FontPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC031B4E2358F99900009281 /* FontPicker.swift */; };
 		DC31D9022339318600A816D6 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC31D9012339318600A816D6 /* GradientView.swift */; };
 		DC998D30233165AE00B9B2AC /* iPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC998D2F233165AE00B9B2AC /* iPhone.swift */; };
 		DCADE3D12327B0370051623E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCADE3D02327B0370051623E /* AppDelegate.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DC031B4E2358F99900009281 /* FontPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontPicker.swift; sourceTree = "<group>"; };
 		DC31D9012339318600A816D6 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		DC998D2F233165AE00B9B2AC /* iPhone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPhone.swift; sourceTree = "<group>"; };
 		DCADE3CD2327B0370051623E /* ScreenshotFactory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScreenshotFactory.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,6 +47,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DC031B4D2358F97F00009281 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DC31D9012339318600A816D6 /* GradientView.swift */,
+				DC031B4E2358F99900009281 /* FontPicker.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		DCADE3C42327B0370051623E = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +75,7 @@
 		DCADE3CF2327B0370051623E /* ScreenshotFactory */ = {
 			isa = PBXGroup;
 			children = (
+				DC031B4D2358F97F00009281 /* Views */,
 				DCADE3E22327B0500051623E /* Content */,
 				DCADE3D02327B0370051623E /* AppDelegate.swift */,
 				DCADE3D22327B0370051623E /* ViewController.swift */,
@@ -73,7 +85,6 @@
 				DCADE3DC2327B0390051623E /* Info.plist */,
 				DCADE3E52327B06C0051623E /* Constants.swift */,
 				DC998D2F233165AE00B9B2AC /* iPhone.swift */,
-				DC31D9012339318600A816D6 /* GradientView.swift */,
 			);
 			path = ScreenshotFactory;
 			sourceTree = "<group>";
@@ -162,6 +173,7 @@
 			files = (
 				DCADE3D32327B0370051623E /* ViewController.swift in Sources */,
 				DCADE3D12327B0370051623E /* AppDelegate.swift in Sources */,
+				DC031B4F2358F99900009281 /* FontPicker.swift in Sources */,
 				DC31D9022339318600A816D6 /* GradientView.swift in Sources */,
 				DC998D30233165AE00B9B2AC /* iPhone.swift in Sources */,
 				DCADE3E62327B06C0051623E /* Constants.swift in Sources */,
