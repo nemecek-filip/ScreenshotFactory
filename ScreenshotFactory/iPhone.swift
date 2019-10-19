@@ -10,23 +10,34 @@ import UIKit
 
 struct iPhone {
     let resultSize: CGSize
-    let phoneFrame: CGRect
-    let screenshotFrame: CGRect
-    let textFrame: CGRect
+    let width: CGFloat
+    let aspectRatio: CGFloat
     
-    let image: UIImage
+    let frameImage: UIImage
     
-    init(resultSize: CGSize, sideFrameMargin: CGFloat, textSpaceHeight: CGFloat, aspectRatio: CGFloat, screenshotInset: CGFloat, imageName: String) {
+    private let screenshotFrame: CGRect
+    
+    init(resultSize: CGSize, width: CGFloat, aspectRatio: CGFloat, imageName: String, screenshotWidth: CGFloat, screenshotTopOffset: CGFloat) {
         self.resultSize = resultSize
-        let phoneFrameWidth: CGFloat = resultSize.width - 2 * sideFrameMargin
-        phoneFrame = CGRect(x: sideFrameMargin, y: textSpaceHeight, width: phoneFrameWidth, height: phoneFrameWidth * aspectRatio)
-        screenshotFrame = phoneFrame.insetBy(dx: screenshotInset, dy: screenshotInset)
+        self.width = width
+        self.frameImage = UIImage(named: imageName)!
+        self.aspectRatio = aspectRatio
         
-        textFrame = CGRect(x: sideFrameMargin, y: sideFrameMargin * 2, width: resultSize.width - 2 * sideFrameMargin, height: textSpaceHeight)
-        
-        image = UIImage(named: imageName)!
+        self.screenshotFrame = CGRect(x: (width - screenshotWidth) / 2, y: screenshotTopOffset, width: screenshotWidth, height: screenshotWidth * aspectRatio)
     }
     
-    static let X = iPhone(resultSize: CGSize(width: 1125, height: 2436), sideFrameMargin: 30, textSpaceHeight: 600, aspectRatio: 19.5 / 9, screenshotInset: 82, imageName: R.Images.Frames.iPhoneX)
+    func render(with screenshot: UIImage? = nil) -> UIImage {
+        let renderer = UIGraphicsImageRenderer(size: CGSize(width: width, height: width * aspectRatio))
+        
+        return renderer.image { (ctx) in
+            if let screenshot = screenshot {
+                screenshot.draw(in: self.screenshotFrame)
+            }
+            
+            frameImage.draw(at: CGPoint.zero)
+        }
+    }
+    
+    static let X = iPhone(resultSize: CGSize(width: 1242, height: 2688), width: 1180, aspectRatio: 19.5 / 9, imageName: R.Images.Frames.iPhoneX, screenshotWidth: 1022, screenshotTopOffset: 71)
     
 }

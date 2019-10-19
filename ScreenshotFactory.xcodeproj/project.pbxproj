@@ -18,6 +18,7 @@
 		DCADE3E42327B05B0051623E /* iphone-x-frame.png in Resources */ = {isa = PBXBuildFile; fileRef = DCADE3E32327B05B0051623E /* iphone-x-frame.png */; };
 		DCADE3E62327B06C0051623E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCADE3E52327B06C0051623E /* Constants.swift */; };
 		DCADE3E82327F1620051623E /* demo-screenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = DCADE3E72327F1620051623E /* demo-screenshot.png */; };
+		DCE5E908235B9DB000EB3C44 /* iPhoneXS_Max_frame.png in Resources */ = {isa = PBXBuildFile; fileRef = DCE5E907235B9DB000EB3C44 /* iPhoneXS_Max_frame.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		DCADE3E32327B05B0051623E /* iphone-x-frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphone-x-frame.png"; sourceTree = "<group>"; };
 		DCADE3E52327B06C0051623E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DCADE3E72327F1620051623E /* demo-screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "demo-screenshot.png"; sourceTree = "<group>"; };
+		DCE5E907235B9DB000EB3C44 /* iPhoneXS_Max_frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhoneXS_Max_frame.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 			children = (
 				DCADE3E32327B05B0051623E /* iphone-x-frame.png */,
 				DCADE3E72327F1620051623E /* demo-screenshot.png */,
+				DCE5E907235B9DB000EB3C44 /* iPhoneXS_Max_frame.png */,
 			);
 			path = Content;
 			sourceTree = "<group>";
@@ -158,6 +161,7 @@
 			files = (
 				DCADE3DB2327B0390051623E /* LaunchScreen.storyboard in Resources */,
 				DCADE3E42327B05B0051623E /* iphone-x-frame.png in Resources */,
+				DCE5E908235B9DB000EB3C44 /* iPhoneXS_Max_frame.png in Resources */,
 				DCADE3E82327F1620051623E /* demo-screenshot.png in Resources */,
 				DCADE3D82327B0390051623E /* Assets.xcassets in Resources */,
 				DCADE3D62327B0370051623E /* Main.storyboard in Resources */,

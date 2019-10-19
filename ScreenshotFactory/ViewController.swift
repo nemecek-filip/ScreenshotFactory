@@ -107,11 +107,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 ctx.cgContext.addRect(CGRect(origin: CGPoint.zero, size: self.phone.resultSize))
                 ctx.cgContext.drawPath(using: .fillStroke)
                 
-                if let screenshotImage = self.selectedScreenshot {
-                    screenshotImage.draw(in: self.phone.screenshotFrame)
-                }
-                
-                self.phone.image.draw(in: self.phone.phoneFrame)
+                let phoneWidth = self.phone.resultSize.width - 2 * 50
+                self.phone.render(with: self.selectedScreenshot).draw(in: CGRect(x: 20, y: 400, width: phoneWidth, height: phoneWidth * self.phone.aspectRatio))
                 
                 if let text = self.textToRender {
                     let paragraphStyle = NSMutableParagraphStyle()
@@ -126,7 +123,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     
                     let attrs = [NSAttributedString.Key.font: font, NSAttributedString.Key.paragraphStyle: paragraphStyle, NSAttributedString.Key.foregroundColor: UIColor.white]
                     
-                    text.draw(with: self.phone.textFrame, options: .usesLineFragmentOrigin, attributes: attrs, context: nil)
+                    text.draw(with: CGRect(x: 0, y: 0, width: self.phone.resultSize.width, height: 400), options: .usesLineFragmentOrigin, attributes: attrs, context: nil)
                 }
             }
             
