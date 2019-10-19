@@ -18,6 +18,8 @@ import UIKit
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = .clear
+        tableView.backgroundView = nil
+        tableView.tableFooterView = UIView()
         return tableView
     }()
     
@@ -69,6 +71,8 @@ import UIKit
     }
     
     private func setupView() {
+        backgroundColor = .clear
+        
         for (index, fontIdentifier) in fontIdentifiers.enumerated() {
             fontModels.append(FontPickerView.FontModel(font: fontIdentifier, name: fontNames[index]))
         }
