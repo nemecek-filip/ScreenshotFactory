@@ -19,6 +19,8 @@
 		DCADE3E62327B06C0051623E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCADE3E52327B06C0051623E /* Constants.swift */; };
 		DCADE3E82327F1620051623E /* demo-screenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = DCADE3E72327F1620051623E /* demo-screenshot.png */; };
 		DCE5E908235B9DB000EB3C44 /* iPhoneXS_Max_frame.png in Resources */ = {isa = PBXBuildFile; fileRef = DCE5E907235B9DB000EB3C44 /* iPhoneXS_Max_frame.png */; };
+		DCE5E90D235BB30700EB3C44 /* FontCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE5E90B235BB30700EB3C44 /* FontCell.swift */; };
+		DCE5E90E235BB30700EB3C44 /* FontCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCE5E90C235BB30700EB3C44 /* FontCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		DCADE3E52327B06C0051623E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DCADE3E72327F1620051623E /* demo-screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "demo-screenshot.png"; sourceTree = "<group>"; };
 		DCE5E907235B9DB000EB3C44 /* iPhoneXS_Max_frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhoneXS_Max_frame.png; sourceTree = "<group>"; };
+		DCE5E90B235BB30700EB3C44 /* FontCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontCell.swift; sourceTree = "<group>"; };
+		DCE5E90C235BB30700EB3C44 /* FontCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FontCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,8 @@
 			children = (
 				DC31D9012339318600A816D6 /* GradientView.swift */,
 				DC031B4E2358F99900009281 /* FontPicker.swift */,
+				DCE5E90B235BB30700EB3C44 /* FontCell.swift */,
+				DCE5E90C235BB30700EB3C44 /* FontCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -159,6 +165,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCE5E90E235BB30700EB3C44 /* FontCell.xib in Resources */,
 				DCADE3DB2327B0390051623E /* LaunchScreen.storyboard in Resources */,
 				DCADE3E42327B05B0051623E /* iphone-x-frame.png in Resources */,
 				DCE5E908235B9DB000EB3C44 /* iPhoneXS_Max_frame.png in Resources */,
@@ -180,6 +187,7 @@
 				DC031B4F2358F99900009281 /* FontPicker.swift in Sources */,
 				DC31D9022339318600A816D6 /* GradientView.swift in Sources */,
 				DC998D30233165AE00B9B2AC /* iPhone.swift in Sources */,
+				DCE5E90D235BB30700EB3C44 /* FontCell.swift in Sources */,
 				DCADE3E62327B06C0051623E /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

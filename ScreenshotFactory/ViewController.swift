@@ -17,7 +17,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     let phone = iPhone.X
     
-    let colors: [UIColor] = [.black, .darkGray, .blue, .red, .orange, .green, .magenta]
+    let colors: [UIColor] = [.black, .darkGray, .blue, .red, .orange, UIColor(red: 0.329, green: 0.718, blue: 0.259, alpha: 1.00), .magenta]
     
     let demoScreenshot = UIImage(named: R.Images.demoScreenshot)!
     
@@ -26,7 +26,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             redraw(animated: true)
         }
     }
-    var backgroundColor = UIColor.lightGray
+    var backgroundColor = UIColor.darkGray
     var textToRender: String?
     var textSize: CGFloat = 140
     var font: FontPickerView.FontModel?
@@ -116,7 +116,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     
                     let font: UIFont
                     if let selectedFont = self.font {
-                        font = UIFont(name: selectedFont.font, size: self.textSize)!
+                        font = UIFont(name: selectedFont.identifier, size: self.textSize)!
                     } else {
                         font = UIFont(name: "HelveticaNeue-Thin", size: self.textSize)!
                     }

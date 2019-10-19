@@ -10,15 +10,21 @@ import UIKit
 
 @IBDesignable class FontPickerView: UIView, UITableViewDataSource, UITableViewDelegate {
     struct FontModel {
-        let font: String
+        let identifier: String
         let name: String
+        let font: UIFont
+        
+        init(name: String, identifier: String) {
+            self.name = name
+            self.identifier = identifier
+            self.font = UIFont(name: identifier, size: 16)!
+        }
     }
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = .clear
-        tableView.backgroundView = nil
         tableView.tableFooterView = UIView()
         return tableView
     }()
@@ -28,13 +34,21 @@ import UIKit
     private let fontIdentifiers = [
         "AvenirNext-Regular",
         "AmericanTypewriter",
-        "HelveticaNeue-Thin"
+        "Courier",
+        "HelveticaNeue-Thin",
+        "Menlo-Bold",
+        "Noteworthy-Light",
+        "Palatino-Roman",
     ]
     
     private let fontNames = [
         "Avenir Next",
         "American Typewriter",
-        "Helvetica Neue Thin"
+        "Courier",
+        "Helvetica Neue",
+        "Menlo",
+        "Noteworthy",
+        "Palatino",
     ]
     
     private var fontModels = [FontModel]()
@@ -44,14 +58,12 @@ import UIKit
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? FontCell else {
+            fatalError()
+        }
         
         let fontModel = fontModels[indexPath.row]
-        cell.textLabel?.font = UIFont(name: fontModel.font, size: 16)!
-        cell.textLabel?.text = "ABCDEFGH"
-        cell.backgroundColor = .clear
-        cell.detailTextLabel?.text = fontModel.name
-        
+        cell.configure(with: fontModel)
         return cell
     }
     
@@ -59,6 +71,9 @@ import UIKit
         didSelectFont?(fontModels[indexPath.row])
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        tableView.backgroundColor = .clear // To fix white background
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -73,12 +88,16 @@ import UIKit
     private func setupView() {
         backgroundColor = .clear
         
+        assert(fontNames.count == fontIdentifiers.count, "Improperly setup fonts")
+        
         for (index, fontIdentifier) in fontIdentifiers.enumerated() {
-            fontModels.append(FontPickerView.FontModel(font: fontIdentifier, name: fontNames[index]))
+            fontModels.append(FontPickerView.FontModel(name: fontNames[index], identifier: fontIdentifier))
         }
         
         addSubview(tableView)
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        let bundle = Bundle(for: type(of: self))
+        let nib = UINib(nibName: "FontCell", bundle: bundle)
+        tableView.register(nib, forCellReuseIdentifier: "Cell")
         
         tableView.dataSource = self
         tableView.delegate = self

@@ -12,6 +12,7 @@ struct iPhone {
     let resultSize: CGSize
     let width: CGFloat
     let aspectRatio: CGFloat
+    let frameAspectRatio: CGFloat
     
     let frameImage: UIImage
     
@@ -21,6 +22,7 @@ struct iPhone {
         self.resultSize = resultSize
         self.width = width
         self.frameImage = UIImage(named: imageName)!
+        self.frameAspectRatio = self.frameImage.size.height / self.frameImage.size.width
         self.aspectRatio = aspectRatio
         
         self.screenshotFrame = CGRect(x: (width - screenshotWidth) / 2, y: screenshotTopOffset, width: screenshotWidth, height: screenshotWidth * aspectRatio)
@@ -34,10 +36,10 @@ struct iPhone {
                 screenshot.draw(in: self.screenshotFrame)
             }
             
-            frameImage.draw(in: CGRect(x: 0, y: 0, width: width, height: width * aspectRatio))
+            frameImage.draw(in: CGRect(x: 0, y: 0, width: width, height: width * frameAspectRatio))
         }
     }
     
-    static let X = iPhone(resultSize: CGSize(width: 1242, height: 2688), width: 1180, aspectRatio: 19.5 / 9, imageName: R.Images.Frames.iPhoneX, screenshotWidth: 1022, screenshotTopOffset: 78)
+    static let X = iPhone(resultSize: CGSize(width: 1242, height: 2688), width: 1180, aspectRatio: 19.5 / 9, imageName: R.Images.Frames.iPhoneX, screenshotWidth: 1022, screenshotTopOffset: 71)
     
 }
