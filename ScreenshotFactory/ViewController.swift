@@ -17,7 +17,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     let phone = iPhone.X
     
-    let colors: [UIColor] = [.black, .darkGray, .blue, .red, .orange, UIColor(red: 0.329, green: 0.718, blue: 0.259, alpha: 1.00), .magenta]
+    let colors: [UIColor] = [.black, .darkGray,
+                             UIColor(red: 0.043, green: 0.239, blue: 0.718, alpha: 1.00),
+                             UIColor(red: 0.231, green: 0.569, blue: 0.745, alpha: 1.00),
+                             UIColor(red: 0.675, green: 0.133, blue: 0.090, alpha: 1.00),
+                             .orange,
+                             UIColor(red: 0.329, green: 0.718, blue: 0.259, alpha: 1.00),
+                             UIColor(red: 0.506, green: 0.106, blue: 0.408, alpha: 1.00),
+                             UIColor(red: 0.980, green: 0.847, blue: 0.286, alpha: 1.00),
+    ]
     
     let demoScreenshot = UIImage(named: R.Images.demoScreenshot)!
     
