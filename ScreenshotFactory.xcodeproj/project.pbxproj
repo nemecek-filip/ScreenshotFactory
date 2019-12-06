@@ -19,6 +19,7 @@
 		DCADE3E62327B06C0051623E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCADE3E52327B06C0051623E /* Constants.swift */; };
 		DCADE3E82327F1620051623E /* demo-screenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = DCADE3E72327F1620051623E /* demo-screenshot.png */; };
 		DCC647CA239A907C00CB88EC /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC647C9239A907C00CB88EC /* PreviewViewController.swift */; };
+		DCC647CC239A973B00CB88EC /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC647CB239A973B00CB88EC /* UIViewExtensions.swift */; };
 		DCE5E908235B9DB000EB3C44 /* iPhoneXS_Max_frame.png in Resources */ = {isa = PBXBuildFile; fileRef = DCE5E907235B9DB000EB3C44 /* iPhoneXS_Max_frame.png */; };
 		DCE5E90D235BB30700EB3C44 /* FontCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE5E90B235BB30700EB3C44 /* FontCell.swift */; };
 		DCE5E90E235BB30700EB3C44 /* FontCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCE5E90C235BB30700EB3C44 /* FontCell.xib */; };
@@ -39,6 +40,7 @@
 		DCADE3E52327B06C0051623E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DCADE3E72327F1620051623E /* demo-screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "demo-screenshot.png"; sourceTree = "<group>"; };
 		DCC647C9239A907C00CB88EC /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
+		DCC647CB239A973B00CB88EC /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		DCE5E907235B9DB000EB3C44 /* iPhoneXS_Max_frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhoneXS_Max_frame.png; sourceTree = "<group>"; };
 		DCE5E90B235BB30700EB3C44 /* FontCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontCell.swift; sourceTree = "<group>"; };
 		DCE5E90C235BB30700EB3C44 /* FontCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FontCell.xib; sourceTree = "<group>"; };
@@ -85,17 +87,17 @@
 		DCADE3CF2327B0370051623E /* ScreenshotFactory */ = {
 			isa = PBXGroup;
 			children = (
+				DCC647CE239A97F800CB88EC /* Models */,
+				DCC647CD239A97E900CB88EC /* Extras */,
 				DC031B4D2358F97F00009281 /* Views */,
 				DCADE3E22327B0500051623E /* Content */,
-				DCADE3D02327B0370051623E /* AppDelegate.swift */,
 				DCADE3D22327B0370051623E /* ViewController.swift */,
 				DCC647C9239A907C00CB88EC /* PreviewViewController.swift */,
 				DCADE3D42327B0370051623E /* Main.storyboard */,
 				DCADE3D72327B0390051623E /* Assets.xcassets */,
 				DCADE3D92327B0390051623E /* LaunchScreen.storyboard */,
 				DCADE3DC2327B0390051623E /* Info.plist */,
-				DCADE3E52327B06C0051623E /* Constants.swift */,
-				DC998D2F233165AE00B9B2AC /* iPhone.swift */,
+				DCADE3D02327B0370051623E /* AppDelegate.swift */,
 			);
 			path = ScreenshotFactory;
 			sourceTree = "<group>";
@@ -108,6 +110,23 @@
 				DCE5E907235B9DB000EB3C44 /* iPhoneXS_Max_frame.png */,
 			);
 			path = Content;
+			sourceTree = "<group>";
+		};
+		DCC647CD239A97E900CB88EC /* Extras */ = {
+			isa = PBXGroup;
+			children = (
+				DCC647CB239A973B00CB88EC /* UIViewExtensions.swift */,
+				DCADE3E52327B06C0051623E /* Constants.swift */,
+			);
+			path = Extras;
+			sourceTree = "<group>";
+		};
+		DCC647CE239A97F800CB88EC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DC998D2F233165AE00B9B2AC /* iPhone.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +211,7 @@
 				DC998D30233165AE00B9B2AC /* iPhone.swift in Sources */,
 				DCE5E90D235BB30700EB3C44 /* FontCell.swift in Sources */,
 				DCADE3E62327B06C0051623E /* Constants.swift in Sources */,
+				DCC647CC239A973B00CB88EC /* UIViewExtensions.swift in Sources */,
 				DCC647CA239A907C00CB88EC /* PreviewViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

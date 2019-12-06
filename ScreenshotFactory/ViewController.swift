@@ -14,18 +14,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet var sourceTextView: UITextView!
     @IBOutlet var textSizeSlider: UISlider!
     @IBOutlet var fontPickerView: FontPickerView!
+    @IBOutlet var previewButton: UIButton!
     
     let phone = iPhone.X
     
-    let colors: [UIColor] = [.black, .darkGray,
-                             UIColor(red: 0.043, green: 0.239, blue: 0.718, alpha: 1.00),
-                             UIColor(red: 0.231, green: 0.569, blue: 0.745, alpha: 1.00),
-                             UIColor(red: 0.675, green: 0.133, blue: 0.090, alpha: 1.00),
-                             .orange,
-                             UIColor(red: 0.329, green: 0.718, blue: 0.259, alpha: 1.00),
-                             UIColor(red: 0.506, green: 0.106, blue: 0.408, alpha: 1.00),
-                             UIColor(red: 0.980, green: 0.847, blue: 0.286, alpha: 1.00),
-    ]
+    let colors: [UIColor] = R.PrettyColors
     
     let demoScreenshot = UIImage(named: R.Images.demoScreenshot)!
     
@@ -58,7 +51,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showPreview" {
+        if segue.identifier == R.Segues.showPreview {
             guard let nvc = segue.destination as? UINavigationController, let previewVC = nvc.topViewController as? PreviewViewController else {
                 fatalError()
             }
@@ -72,10 +65,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func setupViews() {
-        resultImageView.layer.shadowColor = UIColor.black.cgColor
-        resultImageView.layer.shadowOpacity = 0.5
-        resultImageView.layer.shadowOffset = .zero
-        resultImageView.layer.shadowRadius = 10
+        resultImageView.applyLightShadow()
+        previewButton.applyMediumShadow()
     }
     
     func setupGestureRecognizer() {
@@ -88,7 +79,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func previewButtonTapped(_ sender: UIButton) {
-        performSegue(withIdentifier: "showPreview", sender: self)
+        performSegue(withIdentifier: R.Segues.showPreview, sender: self)
     }
     
     @objc func imageTapped() {
@@ -135,7 +126,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     if let selectedFont = self.font {
                         font = UIFont(name: selectedFont.identifier, size: self.textSize)!
                     } else {
-                        font = UIFont(name: "HelveticaNeue-Thin", size: self.textSize)!
+                        font = UIFont(name: R.DefaultFontName, size: self.textSize)!
                     }
                     
                     let attrs = [NSAttributedString.Key.font: font, NSAttributedString.Key.paragraphStyle: paragraphStyle, NSAttributedString.Key.foregroundColor: UIColor.white]
@@ -170,7 +161,6 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ColorCell", for: indexPath)
         
         cell.backgroundColor = colors[indexPath.item]
-        
         cell.layer.borderWidth = 1
         cell.layer.cornerRadius = 5
         
@@ -185,8 +175,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 
 // MARK: Text View delegate
 
-extension ViewController: UITextViewDelegate {
-    
+extension ViewController: UITextViewDelegate {    
     func textViewDidEndEditing(_ textView: UITextView) {
         textToRender = textView.text
         redraw()

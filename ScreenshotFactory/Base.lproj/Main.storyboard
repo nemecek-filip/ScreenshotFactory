@@ -175,6 +175,7 @@
                     <connections>
                         <outlet property="collectionView" destination="NeN-ty-C7P" id="ZZi-Id-b71"/>
                         <outlet property="fontPickerView" destination="WYl-Ae-7MH" id="pfk-Gn-WqN"/>
+                        <outlet property="previewButton" destination="X32-Nh-faQ" id="ZBA-RM-j8W"/>
                         <outlet property="resultImageView" destination="ZPS-eE-pQD" id="Uep-Jh-QWY"/>
                         <outlet property="sourceTextView" destination="Usn-OD-j6P" id="FTw-JL-SPV"/>
                         <outlet property="textSizeSlider" destination="HW9-Iz-a5M" id="cIP-nj-POs"/>
