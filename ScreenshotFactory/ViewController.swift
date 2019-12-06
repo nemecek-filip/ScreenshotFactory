@@ -9,7 +9,10 @@
 import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    @IBOutlet var deviceSegmentedControl: UISegmentedControl!
     @IBOutlet var resultImageView: UIImageView!
+    @IBOutlet var resultImageViewAspectRatioConstraint: NSLayoutConstraint!    
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var sourceTextView: UITextView!
     @IBOutlet var textSizeSlider: UISlider!

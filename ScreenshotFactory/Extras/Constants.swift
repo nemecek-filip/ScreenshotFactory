@@ -12,6 +12,7 @@ enum R {
     struct Images {
         struct Frames {
             static let iPhoneX = "iPhoneXS_Max_frame.png"
+            static let iPhone8Plus = "iphone8-Plus-frame.png"
         }
         static let demoScreenshot = "demo-screenshot.png"
     }

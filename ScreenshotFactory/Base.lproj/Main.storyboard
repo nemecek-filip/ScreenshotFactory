@@ -16,6 +16,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="57y-yO-cJ1">
+                                <rect key="frame" x="158" y="128" width="191" height="32"/>
+                                <segments>
+                                    <segment title="Classic"/>
+                                    <segment title="Notch"/>
+                                    <segment title="Tablet"/>
+                                </segments>
+                            </segmentedControl>
                             <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iphone-x-frame.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZPS-eE-pQD">
                                 <rect key="frame" x="100" y="179" width="307" height="666"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -149,8 +157,10 @@
                             <constraint firstItem="sXO-bO-gV7" firstAttribute="leading" secondItem="ZPS-eE-pQD" secondAttribute="trailing" constant="80" id="25a-yU-iCv"/>
                             <constraint firstItem="gfE-ES-Fgh" firstAttribute="top" secondItem="ZPS-eE-pQD" secondAttribute="bottom" constant="8" id="5Su-ma-Rgb"/>
                             <constraint firstItem="W8S-sV-p8B" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="5Vq-Ye-XsI"/>
+                            <constraint firstItem="57y-yO-cJ1" firstAttribute="centerX" secondItem="ZPS-eE-pQD" secondAttribute="centerX" id="8y9-U5-WDP"/>
                             <constraint firstItem="sXO-bO-gV7" firstAttribute="top" secondItem="ZPS-eE-pQD" secondAttribute="top" id="BJB-du-MsA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="sXO-bO-gV7" secondAttribute="bottom" constant="100" id="CCb-ma-jt3"/>
+                            <constraint firstItem="ZPS-eE-pQD" firstAttribute="top" secondItem="57y-yO-cJ1" secondAttribute="bottom" constant="20" id="DEj-MH-c9m"/>
                             <constraint firstItem="0tT-Jk-PiO" firstAttribute="centerX" secondItem="ZPS-eE-pQD" secondAttribute="centerX" id="DiU-g2-kBE"/>
                             <constraint firstItem="ZPS-eE-pQD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="ILP-Nu-Gvy"/>
                             <constraint firstItem="X32-Nh-faQ" firstAttribute="trailing" secondItem="ZPS-eE-pQD" secondAttribute="trailing" constant="22" id="KGS-Aa-FAM"/>
@@ -174,9 +184,11 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="NeN-ty-C7P" id="ZZi-Id-b71"/>
+                        <outlet property="deviceSegmentedControl" destination="57y-yO-cJ1" id="clz-ZQ-fSP"/>
                         <outlet property="fontPickerView" destination="WYl-Ae-7MH" id="pfk-Gn-WqN"/>
                         <outlet property="previewButton" destination="X32-Nh-faQ" id="ZBA-RM-j8W"/>
                         <outlet property="resultImageView" destination="ZPS-eE-pQD" id="Uep-Jh-QWY"/>
+                        <outlet property="resultImageViewAspectRatioConstraint" destination="U0y-L0-yOa" id="I9x-cO-I5C"/>
                         <outlet property="sourceTextView" destination="Usn-OD-j6P" id="FTw-JL-SPV"/>
                         <outlet property="textSizeSlider" destination="HW9-Iz-a5M" id="cIP-nj-POs"/>
                         <segue destination="mhv-Rq-ugq" kind="presentation" identifier="showPreview" id="UYF-9Y-amB"/>
