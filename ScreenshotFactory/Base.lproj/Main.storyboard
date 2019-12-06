@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="ipad9_7" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -105,7 +104,7 @@
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0tT-Jk-PiO">
                                 <rect key="frame" x="183.5" y="905" width="140" height="45"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="bYm-S2-oZB"/>
                                     <constraint firstAttribute="width" constant="140" id="rlC-VV-yI1"/>
@@ -126,6 +125,24 @@
                                     <action selector="exportButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5PL-9O-gwi"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X32-Nh-faQ">
+                                <rect key="frame" x="385" y="823" width="44" height="44"/>
+                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="Nx2-be-JIp"/>
+                                    <constraint firstAttribute="height" constant="44" id="obz-Ue-nUd"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="plus.magnifyingglass" catalog="system"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="22"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="previewButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="L4Y-ti-gRq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.80265052474812038" green="0.89816785853084724" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -136,12 +153,14 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="sXO-bO-gV7" secondAttribute="bottom" constant="100" id="CCb-ma-jt3"/>
                             <constraint firstItem="0tT-Jk-PiO" firstAttribute="centerX" secondItem="ZPS-eE-pQD" secondAttribute="centerX" id="DiU-g2-kBE"/>
                             <constraint firstItem="ZPS-eE-pQD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="ILP-Nu-Gvy"/>
+                            <constraint firstItem="X32-Nh-faQ" firstAttribute="trailing" secondItem="ZPS-eE-pQD" secondAttribute="trailing" constant="22" id="KGS-Aa-FAM"/>
                             <constraint firstItem="0tT-Jk-PiO" firstAttribute="top" secondItem="ZPS-eE-pQD" secondAttribute="bottom" constant="60" id="LAZ-ha-PFi"/>
                             <constraint firstItem="W8S-sV-p8B" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ZHU-0M-zQZ"/>
                             <constraint firstItem="gfE-ES-Fgh" firstAttribute="centerX" secondItem="ZPS-eE-pQD" secondAttribute="centerX" id="ZIm-cZ-u4M"/>
                             <constraint firstItem="ZPS-eE-pQD" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.4" id="Zy1-da-Hy9"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="sXO-bO-gV7" secondAttribute="trailing" constant="41" id="hpE-pn-6b4"/>
                             <constraint firstItem="ZPS-eE-pQD" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="p9f-FG-NqB"/>
+                            <constraint firstItem="X32-Nh-faQ" firstAttribute="bottom" secondItem="ZPS-eE-pQD" secondAttribute="bottom" constant="22" id="qvg-6u-3mB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <userDefinedRuntimeAttributes>
@@ -149,7 +168,7 @@
                                 <color key="value" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="bottomColor">
-                                <color key="value" systemColor="systemOrangeColor" red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="value" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
@@ -159,15 +178,76 @@
                         <outlet property="resultImageView" destination="ZPS-eE-pQD" id="Uep-Jh-QWY"/>
                         <outlet property="sourceTextView" destination="Usn-OD-j6P" id="FTw-JL-SPV"/>
                         <outlet property="textSizeSlider" destination="HW9-Iz-a5M" id="cIP-nj-POs"/>
+                        <segue destination="mhv-Rq-ugq" kind="presentation" identifier="showPreview" id="UYF-9Y-amB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="26.5625" y="17.578125"/>
         </scene>
+        <!--Preview View Controller-->
+        <scene sceneID="SRz-Hl-dPH">
+            <objects>
+                <viewController id="0EO-ci-giM" customClass="PreviewViewController" customModule="ScreenshotFactory" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WF5-Mi-crT">
+                        <rect key="frame" x="0.0" y="0.0" width="712" height="984"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qLC-V7-hN7">
+                                <rect key="frame" x="30" y="86" width="652" height="868"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="WbP-N6-n1n" firstAttribute="trailing" secondItem="qLC-V7-hN7" secondAttribute="trailing" constant="30" id="5IS-LK-s1H"/>
+                            <constraint firstItem="qLC-V7-hN7" firstAttribute="top" secondItem="WbP-N6-n1n" secondAttribute="top" constant="30" id="a7X-mL-wbw"/>
+                            <constraint firstItem="WbP-N6-n1n" firstAttribute="bottom" secondItem="qLC-V7-hN7" secondAttribute="bottom" constant="30" id="cm4-ZO-yqf"/>
+                            <constraint firstItem="qLC-V7-hN7" firstAttribute="leading" secondItem="WbP-N6-n1n" secondAttribute="leading" constant="30" id="g0y-u1-XyH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="WbP-N6-n1n"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="LiH-n5-Joa">
+                        <barButtonItem key="leftBarButtonItem" title="Close" style="plain" id="8jC-GH-vIZ">
+                            <connections>
+                                <action selector="closeButtonTapped:" destination="0EO-ci-giM" id="uBh-BJ-sZs"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Export" style="done" id="xaa-K1-UuH">
+                            <connections>
+                                <action selector="exportButtonTapped:" destination="0EO-ci-giM" id="IOA-ty-iMn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="previewImageView" destination="qLC-V7-hN7" id="NlW-91-0Ib"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mpa-09-9mQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1610" y="18"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="arB-rz-0kq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mhv-Rq-ugq" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Yhz-gh-BZ7">
+                        <rect key="frame" x="0.0" y="0.0" width="712" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0EO-ci-giM" kind="relationship" relationship="rootViewController" id="2Y5-s8-SVa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h29-5W-0kz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="868" y="18"/>
+        </scene>
     </scenes>
     <resources>
         <image name="iphone-x-frame.png" width="1338" height="2650"/>
+        <image name="plus.magnifyingglass" catalog="system" width="64" height="56"/>
         <image name="square.and.arrow.up" catalog="system" width="56" height="64"/>
     </resources>
 </document>

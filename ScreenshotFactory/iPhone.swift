@@ -8,7 +8,13 @@
 
 import UIKit
 
-struct iPhone {
+protocol Device {
+    var resultSize: CGSize { get }
+    var width: CGFloat { get }
+    var aspectRatio: CGFloat { get }
+    var frameAspectRatio: CGFloat { get }
+}
+struct iPhone: Device {
     let resultSize: CGSize
     let width: CGFloat
     let aspectRatio: CGFloat

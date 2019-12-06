@@ -37,6 +37,8 @@
 	<true/>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>The app needs to import screenshots.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>The app needs to save exported images.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

@@ -57,6 +57,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         redraw()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showPreview" {
+            guard let nvc = segue.destination as? UINavigationController, let previewVC = nvc.topViewController as? PreviewViewController else {
+                fatalError()
+            }
+            previewVC.image = resultImageView.image
+        }
+    }
+    
     func newFontSelected(_ font: FontPickerView.FontModel) {
         self.font = font
         redraw()
@@ -75,12 +84,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func exportButtonTapped(_ sender: UIButton) {
-        let shareController = UIActivityViewController(activityItems: [resultImageView.image as Any], applicationActivities: nil)
-        shareController.popoverPresentationController?.sourceView = sender
-        shareController.popoverPresentationController?.sourceRect = sender.bounds
-        present(shareController, animated: true, completion: nil)
+        share(image: resultImageView.image, from: sender, from: nil)
     }
     
+    @IBAction func previewButtonTapped(_ sender: UIButton) {
+        performSegue(withIdentifier: "showPreview", sender: self)
+    }
     
     @objc func imageTapped() {
         let picker = UIImagePickerController()
@@ -186,5 +195,20 @@ extension ViewController: UITextViewDelegate {
     func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
         textView.resignFirstResponder()
         return true
+    }
+}
+
+extension UIViewController {
+    func share(image: UIImage?, from view: UIView?, from barButton: UIBarButtonItem?) {
+        precondition(view != nil || barButton != nil, "You must provide either view or barButton")
+        guard let image = image else { return }
+        let shareController = UIActivityViewController(activityItems: [image as Any], applicationActivities: nil)
+        if let view = view {
+            shareController.popoverPresentationController?.sourceView = view
+            shareController.popoverPresentationController?.sourceRect = view.bounds
+        } else {
+            shareController.popoverPresentationController?.barButtonItem = barButton
+        }        
+        present(shareController, animated: true, completion: nil)
     }
 }
