@@ -12,18 +12,31 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBOutlet var deviceSegmentedControl: UISegmentedControl!
     @IBOutlet var resultImageView: UIImageView!
-    @IBOutlet var resultImageViewAspectRatioConstraint: NSLayoutConstraint!    
+    @IBOutlet var notchResultImageViewAspectRatioConstraint: NSLayoutConstraint!
+    @IBOutlet var classicResultImageViewAspectRatioConstraint: NSLayoutConstraint!
+    
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var sourceTextView: UITextView!
     @IBOutlet var textSizeSlider: UISlider!
     @IBOutlet var fontPickerView: FontPickerView!
     @IBOutlet var previewButton: UIButton!
+    @IBOutlet var exportButton: UIButton!
     
-    let phone = iPhone.X
+    var aspectRatioConstraints: [NSLayoutConstraint] {
+        return [classicResultImageViewAspectRatioConstraint, notchResultImageViewAspectRatioConstraint]
+    }
+    
+    var phone = iPhone.X
     
     let colors: [UIColor] = R.PrettyColors
     
-    let demoScreenshot = UIImage(named: R.Images.demoScreenshot)!
+    var demoScreenshot: UIImage {
+        if deviceSegmentedControl.selectedSegmentIndex == 0 {
+            return UIImage(named: R.Images.classicDemoScreenshot)!
+        } else {
+            return UIImage(named: R.Images.demoScreenshot)!
+        }
+    }
     
     var selectedScreenshot: UIImage? {
         didSet {
@@ -70,6 +83,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func setupViews() {
         resultImageView.applyLightShadow()
         previewButton.applyMediumShadow()
+        exportButton.applyLightShadow()
     }
     
     func setupGestureRecognizer() {
@@ -84,6 +98,35 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBAction func previewButtonTapped(_ sender: UIButton) {
         performSegue(withIdentifier: R.Segues.showPreview, sender: self)
     }
+    
+    @IBAction func deviceTypeSegmentedControlChanged(_ sender: UISegmentedControl) {
+        guard sender.selectedSegmentIndex != 2 else { return } // temp measure
+        selectedScreenshot = demoScreenshot
+        
+        sender.isUserInteractionEnabled = false
+        aspectRatioConstraints.forEach({ $0.isActive = false })
+        
+        if sender.selectedSegmentIndex == 0 {
+            phone = .EightPlus
+            classicResultImageViewAspectRatioConstraint.isActive = true
+        } else if sender.selectedSegmentIndex == 1 {
+            phone = .X
+            notchResultImageViewAspectRatioConstraint.isActive = true
+        }
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            self.resultImageView.layoutIfNeeded()
+            self.resultImageView.alpha = 0.1
+        }) { (_) in
+            self.redraw(animated: false)
+            UIView.animate(withDuration: 0.2, animations: {
+                self.resultImageView.alpha = 1
+            }) { (_) in
+                sender.isUserInteractionEnabled = true
+            }
+        }
+    }
+    
     
     @objc func imageTapped() {
         let picker = UIImagePickerController()
@@ -107,43 +150,50 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func redraw(animated: Bool = false) {
         let renderer = UIGraphicsImageRenderer(size: phone.resultSize)
         
-        let animationDuration = animated ? 0.1 : 0
+        let animationDuration = animated ? 0.2 : 0
         
-        UIView.animate(withDuration: animationDuration, animations: {
-            self.resultImageView.alpha = 0.2
-        }) { (finished) in
-            let img = renderer.image { ctx in
+        let img = renderer.image { ctx in
+            
+            ctx.cgContext.setFillColor(self.backgroundColor.cgColor)
+            ctx.cgContext.addRect(CGRect(origin: CGPoint.zero, size: self.phone.resultSize))
+            ctx.cgContext.drawPath(using: .fillStroke)
+            
+            let phoneWidth = self.phone.resultSize.width - 2 * 50
+            self.phone.render(with: self.selectedScreenshot).draw(in: CGRect(x: 50, y: 500, width: phoneWidth, height: phoneWidth * self.phone.aspectRatio))
+            
+            if let text = self.textToRender {
+                let paragraphStyle = NSMutableParagraphStyle()
+                paragraphStyle.alignment = .center
                 
-                ctx.cgContext.setFillColor(self.backgroundColor.cgColor)
-                ctx.cgContext.addRect(CGRect(origin: CGPoint.zero, size: self.phone.resultSize))
-                ctx.cgContext.drawPath(using: .fillStroke)
-                
-                let phoneWidth = self.phone.resultSize.width - 2 * 50
-                self.phone.render(with: self.selectedScreenshot).draw(in: CGRect(x: 50, y: 500, width: phoneWidth, height: phoneWidth * self.phone.aspectRatio))
-                
-                if let text = self.textToRender {
-                    let paragraphStyle = NSMutableParagraphStyle()
-                    paragraphStyle.alignment = .center
-                    
-                    let font: UIFont
-                    if let selectedFont = self.font {
-                        font = UIFont(name: selectedFont.identifier, size: self.textSize)!
-                    } else {
-                        font = UIFont(name: R.DefaultFontName, size: self.textSize)!
-                    }
-                    
-                    let attrs = [NSAttributedString.Key.font: font, NSAttributedString.Key.paragraphStyle: paragraphStyle, NSAttributedString.Key.foregroundColor: UIColor.white]
-                    
-                    text.draw(with: CGRect(x: 20, y: 20, width: self.phone.resultSize.width - 2 * 20, height: 480), options: .usesLineFragmentOrigin, attributes: attrs, context: nil)
+                let font: UIFont
+                if let selectedFont = self.font {
+                    font = UIFont(name: selectedFont.identifier, size: self.textSize)!
+                } else {
+                    font = UIFont(name: R.DefaultFontName, size: self.textSize)!
                 }
+                
+                let attrs = [NSAttributedString.Key.font: font, NSAttributedString.Key.paragraphStyle: paragraphStyle, NSAttributedString.Key.foregroundColor: UIColor.white]
+                
+                text.draw(with: CGRect(x: 20, y: 20, width: self.phone.resultSize.width - 2 * 20, height: 480), options: .usesLineFragmentOrigin, attributes: attrs, context: nil)
             }
-            
-            self.resultImageView.image = img
-            
-            UIView.animate(withDuration: animationDuration, animations: {
-                self.resultImageView.alpha = 1
-            })
         }
+        
+        if animated {
+            UIView.animate(withDuration: animationDuration, animations: {
+                self.resultImageView.alpha = 0.2
+            }) { (finished) in
+                
+                
+                self.resultImageView.image = img
+                
+                UIView.animate(withDuration: animationDuration, animations: {
+                    self.resultImageView.alpha = 1
+                })
+            }
+        } else {
+            resultImageView.image = img
+        }
+        
     }
     
     @IBAction func textSizeSliderValueChanged(_ sender: UISlider) {
@@ -187,20 +237,5 @@ extension ViewController: UITextViewDelegate {
     func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
         textView.resignFirstResponder()
         return true
-    }
-}
-
-extension UIViewController {
-    func share(image: UIImage?, from view: UIView?, from barButton: UIBarButtonItem?) {
-        precondition(view != nil || barButton != nil, "You must provide either view or barButton")
-        guard let image = image else { return }
-        let shareController = UIActivityViewController(activityItems: [image as Any], applicationActivities: nil)
-        if let view = view {
-            shareController.popoverPresentationController?.sourceView = view
-            shareController.popoverPresentationController?.sourceRect = view.bounds
-        } else {
-            shareController.popoverPresentationController?.barButtonItem = barButton
-        }        
-        present(shareController, animated: true, completion: nil)
     }
 }

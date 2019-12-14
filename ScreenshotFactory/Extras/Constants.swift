@@ -15,6 +15,7 @@ enum R {
             static let iPhone8Plus = "iphone8-Plus-frame.png"
         }
         static let demoScreenshot = "demo-screenshot.png"
+        static let classicDemoScreenshot = "classic-demo-screenshot.png"
     }
     struct Segues {
         static let showPreview = "showPreview"

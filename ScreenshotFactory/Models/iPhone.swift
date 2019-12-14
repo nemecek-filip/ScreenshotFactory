@@ -48,6 +48,6 @@ struct iPhone: Device {
     
     static let X = iPhone(resultSize: CGSize(width: 1242, height: 2688), width: 1180, aspectRatio: 19.5 / 9, imageName: R.Images.Frames.iPhoneX, screenshotWidth: 1022, screenshotTopOffset: 71)
     
-    static let EightPlus = iPhone(resultSize: CGSize(width: 1242, height: 2208), width: 1080, aspectRatio: 16 / 9, imageName: R.Images.Frames.iPhone8Plus, screenshotWidth: 1022, screenshotTopOffset: 71)
+    static let EightPlus = iPhone(resultSize: CGSize(width: 1242, height: 2208), width: 1080, aspectRatio: 16 / 9, imageName: R.Images.Frames.iPhone8Plus, screenshotWidth: 930, screenshotTopOffset: 255)
     
 }
