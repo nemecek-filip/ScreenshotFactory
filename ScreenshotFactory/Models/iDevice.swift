@@ -14,7 +14,7 @@ protocol Device {
     var aspectRatio: CGFloat { get }
     var frameAspectRatio: CGFloat { get }
 }
-struct iPhone: Device {
+struct iDevice: Device {
     let resultSize: CGSize
     let width: CGFloat
     let aspectRatio: CGFloat
@@ -46,8 +46,10 @@ struct iPhone: Device {
         }
     }
     
-    static let X = iPhone(resultSize: CGSize(width: 1242, height: 2688), width: 1180, aspectRatio: 19.5 / 9, imageName: R.Images.Frames.iPhoneX, screenshotWidth: 1022, screenshotTopOffset: 71)
+    static let iPhoneNotch = iDevice(resultSize: CGSize(width: 1242, height: 2688), width: 1180, aspectRatio: 19.5 / 9, imageName: R.Images.Frames.iPhoneX, screenshotWidth: 1022, screenshotTopOffset: 71)
     
-    static let EightPlus = iPhone(resultSize: CGSize(width: 1242, height: 2208), width: 1080, aspectRatio: 16 / 9, imageName: R.Images.Frames.iPhone8Plus, screenshotWidth: 930, screenshotTopOffset: 255)
+    static let iPhoneClassic = iDevice(resultSize: CGSize(width: 1242, height: 2208), width: 1080, aspectRatio: 16 / 9, imageName: R.Images.Frames.iPhone8Plus, screenshotWidth: 930, screenshotTopOffset: 255)
+    
+    static let iPad = iDevice(resultSize: CGSize(width: 2048, height: 2732), width: 1800, aspectRatio: 4 / 3, imageName: R.Images.Frames.iPadPro, screenshotWidth: 1670, screenshotTopOffset: 75)
     
 }

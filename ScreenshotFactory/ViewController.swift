@@ -15,6 +15,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet var notchResultImageViewAspectRatioConstraint: NSLayoutConstraint!
     @IBOutlet var classicResultImageViewAspectRatioConstraint: NSLayoutConstraint!
     
+    @IBOutlet var ipadResultImageViewAspectRatioConstraint: NSLayoutConstraint!
+    
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var sourceTextView: UITextView!
     @IBOutlet var textSizeSlider: UISlider!
@@ -23,18 +25,21 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet var exportButton: UIButton!
     
     var aspectRatioConstraints: [NSLayoutConstraint] {
-        return [classicResultImageViewAspectRatioConstraint, notchResultImageViewAspectRatioConstraint]
+        return [classicResultImageViewAspectRatioConstraint,            notchResultImageViewAspectRatioConstraint,
+                ipadResultImageViewAspectRatioConstraint]
     }
     
-    var phone = iPhone.X
+    var device = iDevice.iPhoneNotch
     
     let colors: [UIColor] = R.PrettyColors
     
     var demoScreenshot: UIImage {
         if deviceSegmentedControl.selectedSegmentIndex == 0 {
             return UIImage(named: R.Images.classicDemoScreenshot)!
-        } else {
+        } else if deviceSegmentedControl.selectedSegmentIndex == 1 {
             return UIImage(named: R.Images.demoScreenshot)!
+        } else {
+            return UIImage(named: R.Images.iPadDemoScreenshot)!
         }
     }
     
@@ -100,18 +105,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func deviceTypeSegmentedControlChanged(_ sender: UISegmentedControl) {
-        guard sender.selectedSegmentIndex != 2 else { return } // temp measure
         selectedScreenshot = demoScreenshot
         
         sender.isUserInteractionEnabled = false
         aspectRatioConstraints.forEach({ $0.isActive = false })
         
         if sender.selectedSegmentIndex == 0 {
-            phone = .EightPlus
+            device = .iPhoneClassic
             classicResultImageViewAspectRatioConstraint.isActive = true
         } else if sender.selectedSegmentIndex == 1 {
-            phone = .X
+            device = .iPhoneNotch
             notchResultImageViewAspectRatioConstraint.isActive = true
+        } else if sender.selectedSegmentIndex == 2 {
+            device = .iPad
+            ipadResultImageViewAspectRatioConstraint.isActive = true
         }
         
         UIView.animate(withDuration: 0.5, animations: {
@@ -148,18 +155,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
 
     func redraw(animated: Bool = false) {
-        let renderer = UIGraphicsImageRenderer(size: phone.resultSize)
+        let renderer = UIGraphicsImageRenderer(size: device.resultSize)
         
         let animationDuration = animated ? 0.2 : 0
         
         let img = renderer.image { ctx in
             
             ctx.cgContext.setFillColor(self.backgroundColor.cgColor)
-            ctx.cgContext.addRect(CGRect(origin: CGPoint.zero, size: self.phone.resultSize))
+            ctx.cgContext.addRect(CGRect(origin: CGPoint.zero, size: self.device.resultSize))
             ctx.cgContext.drawPath(using: .fillStroke)
             
-            let phoneWidth = self.phone.resultSize.width - 2 * 50
-            self.phone.render(with: self.selectedScreenshot).draw(in: CGRect(x: 50, y: 500, width: phoneWidth, height: phoneWidth * self.phone.aspectRatio))
+            let phoneWidth = self.device.resultSize.width - 2 * 50
+            self.device.render(with: self.selectedScreenshot).draw(in: CGRect(x: 50, y: 500, width: phoneWidth, height: phoneWidth * self.device.aspectRatio))
             
             if let text = self.textToRender {
                 let paragraphStyle = NSMutableParagraphStyle()
@@ -174,7 +181,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 
                 let attrs = [NSAttributedString.Key.font: font, NSAttributedString.Key.paragraphStyle: paragraphStyle, NSAttributedString.Key.foregroundColor: UIColor.white]
                 
-                text.draw(with: CGRect(x: 20, y: 20, width: self.phone.resultSize.width - 2 * 20, height: 480), options: .usesLineFragmentOrigin, attributes: attrs, context: nil)
+                text.draw(with: CGRect(x: 20, y: 20, width: self.device.resultSize.width - 2 * 20, height: 480), options: .usesLineFragmentOrigin, attributes: attrs, context: nil)
             }
         }
         

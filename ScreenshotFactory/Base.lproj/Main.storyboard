@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="ipad9_7" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -33,10 +33,12 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ZPS-eE-pQD" secondAttribute="height" multiplier="9:19.5" id="U0y-L0-yOa"/>
                                     <constraint firstAttribute="width" secondItem="ZPS-eE-pQD" secondAttribute="height" multiplier="9:16" id="aic-P1-d16"/>
+                                    <constraint firstAttribute="width" secondItem="ZPS-eE-pQD" secondAttribute="height" multiplier="3:4" id="ddb-za-Tm9"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="aic-P1-d16"/>
+                                        <exclude reference="ddb-za-Tm9"/>
                                     </mask>
                                 </variation>
                             </imageView>
@@ -197,6 +199,7 @@
                         <outlet property="deviceSegmentedControl" destination="57y-yO-cJ1" id="clz-ZQ-fSP"/>
                         <outlet property="exportButton" destination="0tT-Jk-PiO" id="Scn-vQ-dvf"/>
                         <outlet property="fontPickerView" destination="WYl-Ae-7MH" id="pfk-Gn-WqN"/>
+                        <outlet property="ipadResultImageViewAspectRatioConstraint" destination="ddb-za-Tm9" id="id5-zl-5gi"/>
                         <outlet property="notchResultImageViewAspectRatioConstraint" destination="U0y-L0-yOa" id="I9x-cO-I5C"/>
                         <outlet property="previewButton" destination="X32-Nh-faQ" id="ZBA-RM-j8W"/>
                         <outlet property="resultImageView" destination="ZPS-eE-pQD" id="Uep-Jh-QWY"/>
