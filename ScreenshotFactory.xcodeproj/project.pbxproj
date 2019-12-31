@@ -10,7 +10,7 @@
 		DC031B4F2358F99900009281 /* FontPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC031B4E2358F99900009281 /* FontPicker.swift */; };
 		DC1AAF6A23A57E46005D52BC /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1AAF6923A57E46005D52BC /* UIViewControllerExtensions.swift */; };
 		DC31D9022339318600A816D6 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC31D9012339318600A816D6 /* GradientView.swift */; };
-		DC998D30233165AE00B9B2AC /* iPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC998D2F233165AE00B9B2AC /* iPhone.swift */; };
+		DC998D30233165AE00B9B2AC /* iDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC998D2F233165AE00B9B2AC /* iDevice.swift */; };
 		DCADE3D12327B0370051623E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCADE3D02327B0370051623E /* AppDelegate.swift */; };
 		DCADE3D32327B0370051623E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCADE3D22327B0370051623E /* ViewController.swift */; };
 		DCADE3D62327B0370051623E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCADE3D42327B0370051623E /* Main.storyboard */; };
@@ -19,6 +19,8 @@
 		DCADE3E42327B05B0051623E /* iphone-x-frame.png in Resources */ = {isa = PBXBuildFile; fileRef = DCADE3E32327B05B0051623E /* iphone-x-frame.png */; };
 		DCADE3E62327B06C0051623E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCADE3E52327B06C0051623E /* Constants.swift */; };
 		DCADE3E82327F1620051623E /* demo-screenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = DCADE3E72327F1620051623E /* demo-screenshot.png */; };
+		DCB9751123B92CC6007C1888 /* ipadProFrame.png in Resources */ = {isa = PBXBuildFile; fileRef = DCB9751023B92CC6007C1888 /* ipadProFrame.png */; };
+		DCB9751323B92D2E007C1888 /* ipad-demo-screenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = DCB9751223B92D2E007C1888 /* ipad-demo-screenshot.png */; };
 		DCC647CA239A907C00CB88EC /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC647C9239A907C00CB88EC /* PreviewViewController.swift */; };
 		DCC647CC239A973B00CB88EC /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC647CB239A973B00CB88EC /* UIViewExtensions.swift */; };
 		DCC647D0239AB64E00CB88EC /* iphone8-Plus-frame.png in Resources */ = {isa = PBXBuildFile; fileRef = DCC647CF239AB64E00CB88EC /* iphone8-Plus-frame.png */; };
@@ -32,7 +34,7 @@
 		DC031B4E2358F99900009281 /* FontPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontPicker.swift; sourceTree = "<group>"; };
 		DC1AAF6923A57E46005D52BC /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		DC31D9012339318600A816D6 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
-		DC998D2F233165AE00B9B2AC /* iPhone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPhone.swift; sourceTree = "<group>"; };
+		DC998D2F233165AE00B9B2AC /* iDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iDevice.swift; sourceTree = "<group>"; };
 		DCADE3CD2327B0370051623E /* ScreenshotFactory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScreenshotFactory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCADE3D02327B0370051623E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCADE3D22327B0370051623E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -43,6 +45,8 @@
 		DCADE3E32327B05B0051623E /* iphone-x-frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphone-x-frame.png"; sourceTree = "<group>"; };
 		DCADE3E52327B06C0051623E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DCADE3E72327F1620051623E /* demo-screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "demo-screenshot.png"; sourceTree = "<group>"; };
+		DCB9751023B92CC6007C1888 /* ipadProFrame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ipadProFrame.png; sourceTree = "<group>"; };
+		DCB9751223B92D2E007C1888 /* ipad-demo-screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-demo-screenshot.png"; sourceTree = "<group>"; };
 		DCC647C9239A907C00CB88EC /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		DCC647CB239A973B00CB88EC /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		DCC647CF239AB64E00CB88EC /* iphone8-Plus-frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphone8-Plus-frame.png"; sourceTree = "<group>"; };
@@ -113,9 +117,11 @@
 			children = (
 				DCADE3E32327B05B0051623E /* iphone-x-frame.png */,
 				DCC647CF239AB64E00CB88EC /* iphone8-Plus-frame.png */,
+				DCB9751223B92D2E007C1888 /* ipad-demo-screenshot.png */,
 				DCADE3E72327F1620051623E /* demo-screenshot.png */,
 				DCE3DDC123A583CE00691228 /* classic-demo-screenshot.png */,
 				DCE5E907235B9DB000EB3C44 /* iPhoneXS_Max_frame.png */,
+				DCB9751023B92CC6007C1888 /* ipadProFrame.png */,
 			);
 			path = Content;
 			sourceTree = "<group>";
@@ -133,7 +139,7 @@
 		DCC647CE239A97F800CB88EC /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				DC998D2F233165AE00B9B2AC /* iPhone.swift */,
+				DC998D2F233165AE00B9B2AC /* iDevice.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -197,12 +203,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCE3DDC223A583CE00691228 /* classic-demo-screenshot.png in Resources */,
+				DCB9751123B92CC6007C1888 /* ipadProFrame.png in Resources */,
 				DCE5E90E235BB30700EB3C44 /* FontCell.xib in Resources */,
 				DCADE3DB2327B0390051623E /* LaunchScreen.storyboard in Resources */,
 				DCADE3E42327B05B0051623E /* iphone-x-frame.png in Resources */,
 				DCE5E908235B9DB000EB3C44 /* iPhoneXS_Max_frame.png in Resources */,
 				DCADE3E82327F1620051623E /* demo-screenshot.png in Resources */,
 				DCC647D0239AB64E00CB88EC /* iphone8-Plus-frame.png in Resources */,
+				DCB9751323B92D2E007C1888 /* ipad-demo-screenshot.png in Resources */,
 				DCADE3D82327B0390051623E /* Assets.xcassets in Resources */,
 				DCADE3D62327B0370051623E /* Main.storyboard in Resources */,
 			);
@@ -220,7 +228,7 @@
 				DC1AAF6A23A57E46005D52BC /* UIViewControllerExtensions.swift in Sources */,
 				DC031B4F2358F99900009281 /* FontPicker.swift in Sources */,
 				DC31D9022339318600A816D6 /* GradientView.swift in Sources */,
-				DC998D30233165AE00B9B2AC /* iPhone.swift in Sources */,
+				DC998D30233165AE00B9B2AC /* iDevice.swift in Sources */,
 				DCE5E90D235BB30700EB3C44 /* FontCell.swift in Sources */,
 				DCADE3E62327B06C0051623E /* Constants.swift in Sources */,
 				DCC647CC239A973B00CB88EC /* UIViewExtensions.swift in Sources */,

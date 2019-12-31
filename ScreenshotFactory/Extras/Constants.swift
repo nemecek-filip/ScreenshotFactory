@@ -13,9 +13,11 @@ enum R {
         struct Frames {
             static let iPhoneX = "iPhoneXS_Max_frame.png"
             static let iPhone8Plus = "iphone8-Plus-frame.png"
+            static let iPadPro = "ipadProFrame.png"
         }
         static let demoScreenshot = "demo-screenshot.png"
         static let classicDemoScreenshot = "classic-demo-screenshot.png"
+        static let iPadDemoScreenshot = "ipad-demo-screenshot.png"
     }
     struct Segues {
         static let showPreview = "showPreview"
