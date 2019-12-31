@@ -8,10 +8,9 @@ _Feel free to help or offer suggestions._
 
 ## Roadmap
 
-* Support creating iPhone 8 Plus screenshots
-* Add support for iPad
+* Finalize animations
 * "Convert" to Catalyst and add drop support for source screenshots
-* Added screenshots history for each device + swipe to show them
+* Persistence - Maybe the option to create "projects" and have saved screenshots with configurations for each
 -- 
 
 ### Current progress
